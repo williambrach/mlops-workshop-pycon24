@@ -11,16 +11,20 @@ FROM python:3.8-slim
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the directory contents into the container at /app
-COPY /turbine_power /app/turbine_power
+# Copy dependencies into the container at /app
 COPY pyproject.toml /app
-COPY setup.cfg /app
 
-# Install any needed packages specified in setup.cfg
+# Install depencies only, avoids re-installing all dependencies when the code changes
+RUN pip install .
+
+# Now copy the code into the container at /app
+COPY /src /app/src
+
+# Install our project only when the code changes, to speed up the build
 RUN pip install .
 
 # Make port available to the world outside this container
 ENV PORT 8080
 
 # Run app.py when the container launches
-CMD ["python", "turbine_power/app.py"]
+CMD ["python", "src/turbine_power/app.py"]
