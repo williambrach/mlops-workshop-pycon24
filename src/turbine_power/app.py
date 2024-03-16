@@ -1,6 +1,6 @@
 """API serving our turbine power prediction model from MLflow.
 
-Run using: `python turbine_power/app.py`
+Run using: `python src/turbine_power/app.py`
 """
 
 from fastapi import FastAPI
@@ -13,10 +13,12 @@ import mlflow
 
 mlflow.set_tracking_uri("http://20.67.15.42:5000")
 
+
 class InputData(BaseModel):
     wind_speed: List[float] = Field(examples=[[10, 11]])
     wind_direction: List[float] = Field(examples=[[45, 45]])
     is_curtailed: List[float] = Field(examples=[[False, False]])
+
 
 stage = "production"
 model_name = "turbine-model"
@@ -25,20 +27,25 @@ feature_names = model_utils.get_feature_names(model_name, stage)
 
 app = FastAPI()
 
+
 @app.get("/")
 async def root():
-    return {"message": "Hi there! This is the root endpoint of the API. Try adding /docs to the URL to see the Swagger UI"}
+    return {
+        "message": "Hi there! This is the root endpoint of the API. Try adding /docs to the URL to see the Swagger UI"
+    }
+
 
 @app.post("/predict")
 async def predict(input_data: InputData):
     data = pd.DataFrame(input_data.model_dump())
     X = data[feature_names]
-    
+
     # Exercise: use the model to make predictions
     # ...
     output = pd.Series(["TODO: implement me!"])  # replace this line
-    
+
     return {"prediction": output.tolist()}
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)

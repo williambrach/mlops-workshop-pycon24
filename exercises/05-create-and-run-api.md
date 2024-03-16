@@ -6,14 +6,14 @@ An API helps us bring our model to the end user. It allows us to enable end user
 
 ## Run the application
 
-We've already made a start with the implementation in `/turbine_power/app.py`.
+We've already made a start with the implementation in `src/turbine_power/app.py`.
 
 Exercises:
 
-1. Inspect the code in `/turbine_power/app.py`
+1. Inspect the code in `src/turbine_power/app.py`
 2. Run the application with:
 ```
-python turbine_power/app.py
+python src/turbine_power/app.py
 ```
 3. When prompted, navigate to the given URL in your browser: [http://0.0.0.0:8080](http://0.0.0.0:8080)
 
@@ -29,7 +29,7 @@ Our API doesn't actually *use* our model yet. Let's change that.
 
 Exercises:
 
-1. Open `/turbine_power/app.py` in your editor
+1. Open `src/turbine_power/app.py` in your editor
 2. Change the `/predict` endpoint to use our model
 3. Try it out again in the Swagger UI!
 
