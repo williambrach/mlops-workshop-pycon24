@@ -65,7 +65,7 @@ source .venv/bin/activate
 
 3. Install the dependencies
 ```bash
-pip install -e ".[notebook]"
+pip install -e ".[dev]"
 ```
 Not working? Double check in which folder you are running this in. It should contain `pyproject.toml` and `setup.cfg`.
 

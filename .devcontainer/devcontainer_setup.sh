@@ -5,4 +5,4 @@ curl -fsSL https://get.docker.com -o get-docker.sh \
 groupadd docker \
     && usermod -aG docker vscode
 
-pip install -e ".[notebook]"
+pip install -e ".[dev]"
