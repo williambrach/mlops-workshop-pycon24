@@ -35,7 +35,7 @@ These are the steps to get started with GitHub Codespaces:
 ```bash
 python -c "import turbine_power"
 ```
-No ouput? Good! <br>Getting a `ModuleNotFoundError`? Not good... The automated setup didn't work. Please follow the *Installing dependencies* section below to set up the environment manually.
+No output? Good! <br>Getting a `ModuleNotFoundError`? Not good... The automated setup didn't work. Please follow the *Installing dependencies* section below to set up the environment manually.
 
 #### **2. Using your own editor**
 
