@@ -78,4 +78,4 @@ jobs:
             --platform managed \
             --region europe-west1 \
             --allow-unauthenticated \
-            --project mlops-tutorial-project
+            --project mlops-workshop-project
