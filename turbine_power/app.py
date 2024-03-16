@@ -11,7 +11,7 @@ import pandas as pd
 from typing import List
 import mlflow
 
-mlflow.set_tracking_uri("http://20.4.198.104:5000")
+mlflow.set_tracking_uri("http://20.67.15.42:5000")
 
 class InputData(BaseModel):
     wind_speed: List[float] = Field(examples=[[10, 11]])

@@ -12,7 +12,7 @@ def run_inference():
     stage = "production"
     model_name = "turbine-model"
     print(f"Loading model '{model_name}' from stage '{stage}'...")
-    mlflow.set_tracking_uri("http://20.4.198.104:5000")
+    mlflow.set_tracking_uri("http://20.67.15.42:5000")
     model = load_model(model_name, stage)
     features = get_feature_names(model_name, stage)
 
