@@ -30,31 +30,31 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/turbine-image:latest
 
-  # deploy_azure:
-  #   needs: build_and_push
-  #   runs-on: ubuntu-latest
+  deploy_azure:
+    needs: build_and_push
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-  #     - name: Login to Azure
-  #       uses: azure/login@v2
-  #       with:
-  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-  #     - name: Deploy to Azure Container Instances
-  #       run: |
-  #         az container create \
-  #           --name turbine-app \
-  #           --resource-group <YOUR-RESOURCE-GROUP> \
-  #           --image ${{ secrets.DOCKERHUB_USERNAME }}/turbine-image:latest \
-  #           --dns-name-label turbine-app \
-  #           --ports 8080 \
-  #           --ip-address public || \
-  #         az container restart \
-  #           --name turbine-app \
-  #           --resource-group <YOUR-RESOURCE-GROUP>
+      - name: Deploy to Azure Container Instances
+        run: |
+          az container create \
+            --name turbine-app \
+            --resource-groupPocketSommDev \
+            --image ${{ secrets.DOCKERHUB_USERNAME }}/turbine-image:latest \
+            --dns-name-label turbine-app \
+            --ports 8080 \
+            --ip-address public || \
+          az container restart \
+            --name turbine-app \
+            --resource-group PocketSommDev
 
   # deploy_gcp:
   #   needs: build_and_push
