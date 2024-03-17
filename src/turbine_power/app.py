@@ -42,7 +42,7 @@ async def predict(input_data: InputData):
 
     # Exercise: use the model to make predictions
     # ...
-    output = pd.Series(["TODO: implement me!"])  # replace this line
+    output = model.predict(X)  # replace this line
 
     return {"prediction": output.tolist()}
 
