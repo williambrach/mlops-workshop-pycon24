@@ -49,7 +49,7 @@ jobs:
             --name turbine-app \
             --resource-group PocketSommDev \
             --image ${{ secrets.DOCKERHUB_USERNAME }}/turbine-image:latest \
-            --dns-name-label turbine-app \
+            --dns-name-label turbine-app-cicd-demo \
             --ports 8080 \
             --ip-address public || \
           az container restart \
