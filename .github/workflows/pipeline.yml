@@ -47,7 +47,7 @@ jobs:
         run: |
           az container create \
             --name turbine-app \
-            --resource-groupPocketSommDev \
+            --resource-group PocketSommDev \
             --image ${{ secrets.DOCKERHUB_USERNAME }}/turbine-image:latest \
             --dns-name-label turbine-app \
             --ports 8080 \
