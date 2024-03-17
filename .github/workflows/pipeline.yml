@@ -47,14 +47,14 @@ jobs:
         run: |
           az container create \
             --name turbine-app \
-            --resource-group mlops-tutorial \
+            --resource-group yke-rusticus-sandbox \
             --image ${{ secrets.DOCKERHUB_USERNAME }}/turbine-image:latest \
             --dns-name-label turbine-app \
             --ports 8080 \
             --ip-address public || \
           az container restart \
             --name turbine-app \
-            --resource-group mlops-tutorial
+            --resource-group yke-rusticus-sandbox
 
   deploy_gcp:
     needs: build_and_push
